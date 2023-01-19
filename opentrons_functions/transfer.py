@@ -1,6 +1,8 @@
 from numpy import ceil
 from opentrons import protocol_api
 
+metadata = {'apiLevel': '2.8',
+            'author': 'Jon Sanders'}
 
 def add_buffer(pipette,
                source_wells,
@@ -65,7 +67,7 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
             pipette.air_gap(10)
-           
+            protocol.delay(seconds=2) 
             
             if touch_tip:
                 pipette.touch_tip()
@@ -84,7 +86,8 @@ def add_buffer(pipette,
             remaining -= transfer_vol
             log += 'Remaining: %s \n' % remaining
 
-        pipette.blow_out() 
+        pipette.blow_out()
+        protocol.delay(seconds=2) 
 
     if drop_tip:
         pipette.drop_tip()
