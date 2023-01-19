@@ -11,7 +11,7 @@ def add_buffer(pipette,
                tip_vol=300,
                remaining=None,
                drop_tip=True,
-               touch_tip=False,
+               touch_tip=True,
                pre_mix=None,
                dead_vol=1000 / 8):
     log = ''
@@ -64,6 +64,7 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
             pipette.air_gap(10)
+            protocol.delay(seconds=2) 
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
             log += 'Transferring {0} to {1}\n'.format(source_well,
@@ -76,6 +77,7 @@ def add_buffer(pipette,
             log += 'Remaining: %s \n' % remaining
 
         pipette.blow_out()
+        protocol.delay(seconds=2) 
 
     if drop_tip:
         pipette.drop_tip()
