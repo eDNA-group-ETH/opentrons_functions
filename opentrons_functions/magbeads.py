@@ -1,6 +1,6 @@
 from opentrons import types
-from opentrons_functions.transfer import add_buffer
-from opentrons_functions.util import odd_or_even
+from transfer import add_buffer
+from util import odd_or_even
 
 
 def bead_mix(pipette,
