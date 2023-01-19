@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/root/opentrons_functions/opentrons_functions")
+
 from opentrons import types
 from transfer import add_buffer
 from util import odd_or_even
