@@ -72,6 +72,8 @@ def add_buffer(pipette,
             
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
+            pipette.air_gap(10)
+
             log += 'Transferring {0} to {1}\n'.format(source_well,
                                                       col)
             if touch_tip:
