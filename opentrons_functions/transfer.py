@@ -63,6 +63,8 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
                              
+            protocol.delay(seconds=2)
+                             
             if touch_tip:
                 pipette.touch_tip()
                 log += 'Touching tip \n'
