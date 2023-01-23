@@ -62,9 +62,12 @@ def add_buffer(pipette,
 
             pipette.aspirate(transfer_vol,
                              source_well)
-            pipette.air_gap(10)
+                             
+            if touch_tip:
+                pipette.touch_tip()
+                log += 'Touching tip \n'
             
-            pipette.touch_tip()
+            pipette.air_gap(10)
             
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
