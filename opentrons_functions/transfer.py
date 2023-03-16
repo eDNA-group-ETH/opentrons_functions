@@ -71,13 +71,14 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
                              
-            protocol.delay(seconds=pause_in_sec) 
                                          
             if touch_tip:
                 pipette.touch_tip(speed=touch_tip_speed, radius=touch_tip_radius, v_offset=touch_tip_v_offset)
                 log += 'Touching tip \n'
             
             pipette.air_gap(10)
+            
+            protocol.delay(seconds=pause_in_sec) 
             
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
