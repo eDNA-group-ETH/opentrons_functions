@@ -1,5 +1,6 @@
 import sys
 sys.path.append("/root/opentrons_functions/opentrons_functions")
+sys.path.append("/Users/fabian/Documents/01_Work/03_Docs/Opentron/opentrons_functions/opentrons_functions")
 
 from opentrons import types
 from opentrons import protocol_api
@@ -195,6 +196,11 @@ def bead_wash(  # global arguments
                                             cols,
                                             wash_vol,
                                             source_vol,
+                                            protocol,
+                                            pause_in_sec = 0,
+                                            touch_tip_speed=50,
+                                            touch_tip_radius=0.6,
+                                            touch_tip_v_offset=-4,
                                             tip=wash_tip,
                                             tip_vol=wash_tip_vol,
                                             remaining=remaining,
