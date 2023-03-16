@@ -1,11 +1,17 @@
 from numpy import ceil
 
+
 def add_buffer(pipette,
                source_wells,
                dest,
                cols,
                vol,
                source_vol,
+               protocol,
+               pause_in_sec,
+               touch_tip_speed,
+               touch_tip_radius,
+               touch_tip_v_offset,
                tip=None,
                tip_vol=300,
                remaining=None,
@@ -13,6 +19,8 @@ def add_buffer(pipette,
                touch_tip=True,
                pre_mix=None,
                dead_vol=1000 / 8):
+            
+
     log = ''
 
     if tip is not None:
@@ -63,9 +71,10 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
                              
-                             
+            protocol.delay(seconds=pause_in_sec) 
+                                         
             if touch_tip:
-                pipette.touch_tip()
+                pipette.touch_tip(speed=touch_tip_speed, radius=touch_tip_radius, v_offset=touch_tip_v_offset)
                 log += 'Touching tip \n'
             
             pipette.air_gap(10)
@@ -78,7 +87,7 @@ def add_buffer(pipette,
             log += 'Transferring {0} to {1}\n'.format(source_well,
                                                       col)
             if touch_tip:
-                pipette.touch_tip()
+                pipette.touch_tip(speed=touch_tip_speed, radius=touch_tip_radius, v_offset=touch_tip_v_offset)
                 log += 'Touching tip \n'
 
             remaining -= transfer_vol
