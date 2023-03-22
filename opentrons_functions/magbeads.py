@@ -39,7 +39,11 @@ def bead_mix(pipette,
                              rate=mix_rate)
 
         pipette.blow_out(plate[col].top())
-        pipette.touch_tip()
+        
+        pipette.touch_tip(speed = 30,
+                          radius = 0.5,
+                          v_offset = -6)
+                          
         pipette.aspirate(20)
         aspirated = True
 
