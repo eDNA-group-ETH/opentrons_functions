@@ -67,7 +67,7 @@ def remove_supernatant(pipette,
                        tiprack,
                        waste,
                        super_vol=600,
-                       tip_vol=200,
+                       tip_vol_rs=200,
                        rate=0.25,
                        bottom_offset=2,
                        dispense_rate=1,
@@ -88,7 +88,7 @@ def remove_supernatant(pipette,
         dispense_gap = False
         while vol_remaining > 0:
 
-            transfer_vol = min(vol_remaining, (tip_vol - 10))
+            transfer_vol = min(vol_remaining, (tip_vol_rs - 10))
 
             z_height = vol_fn(vol_remaining - transfer_vol)
             if z_height < bottom_offset:
@@ -173,7 +173,7 @@ def bead_wash(  # global arguments
                        cols,
                        super_tiprack,
                        super_waste,
-                       tip_vol=super_tip_vol,
+                       tip_vol_rs=super_tip_vol,
                        super_vol=super_vol,
                        rate=rate,
                        bottom_offset=super_bottom_offset,
