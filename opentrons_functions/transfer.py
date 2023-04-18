@@ -124,3 +124,4 @@ def get_96_from_384_wells(method='interleaved', start=1):
                          (start - 1) * 6 + 7):
             for row in [chr(x + 65) for x in range(1, 17, 2)]:
                 yield('%s%s' % (row, col))
+                
