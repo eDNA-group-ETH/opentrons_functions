@@ -199,7 +199,7 @@ def bead_wash(  # global arguments
                                             plate,
                                             cols,
                                             wash_vol,
-                                            source_vol
+                                            source_vol,
                                             tip_vol=wash_tip_vol,
                                             protocol,
                                             pause_in_sec = 0,
