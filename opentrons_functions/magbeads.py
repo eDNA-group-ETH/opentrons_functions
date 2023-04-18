@@ -199,14 +199,14 @@ def bead_wash(  # global arguments
                                             plate,
                                             cols,
                                             wash_vol,
-                                            source_vol,
+                                            source_vol
+                                            tip_vol=wash_tip_vol,
                                             protocol,
                                             pause_in_sec = 0,
                                             touch_tip_speed=50,
                                             touch_tip_radius=0.6,
                                             touch_tip_v_offset=-4,
                                             tip=wash_tip,
-                                            tip_vol=wash_tip_vol,
                                             remaining=remaining,
                                             drop_tip=drop_wash_tip,
                                             touch_tip=touch_wash_tip)
