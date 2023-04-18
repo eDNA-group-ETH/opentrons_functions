@@ -141,10 +141,10 @@ def bead_wash(  # global arguments
               super_blowout=False,
               drop_super_tip=True,
               vol_fn=None,
-              wash_vol=300,
+              wash_vol=200,
               remaining=None,
               wash_tip=None,
-              wash_tip_vol=300,
+              wash_tip_vol=200,
               drop_wash_tip=True,
               touch_wash_tip=False,
               mix_vol=200,
@@ -154,7 +154,7 @@ def bead_wash(  # global arguments
               mix_rate=1,
               drop_mix_tip=False,
               mag_engage_height=None,
-              pause_s=300):
+              pause_s=200):
     # Wash
 
     # This should:
