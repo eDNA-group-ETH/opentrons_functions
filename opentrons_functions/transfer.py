@@ -7,18 +7,18 @@ def add_buffer(pipette,
                cols,
                vol,
                source_vol,
-               tip_vol,
                protocol,
                pause_in_sec,
                touch_tip_speed,
                touch_tip_radius,
                touch_tip_v_offset,
+               tip_vol=200,
                tip=None,
                remaining=None,
                drop_tip=True,
                touch_tip=True,
                pre_mix=None,
-               dead_vol=1000 / 8):
+               dead_vol=1000/8):
             
 
     log = ''
@@ -71,7 +71,7 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
             
-            pipette.air_gap(10)
+            #pipette.air_gap(10)
             
             protocol.delay(seconds=pause_in_sec) 
             
