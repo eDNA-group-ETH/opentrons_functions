@@ -71,6 +71,8 @@ def add_buffer(pipette,
             pipette.aspirate(transfer_vol,
                              source_well)
             
+            pipette.move_to(source_well.top(z=-6)) 
+            
             #pipette.air_gap(10)
             
             protocol.delay(seconds=pause_in_sec) 
