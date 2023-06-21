@@ -66,6 +66,8 @@ def remove_supernatant(pipette,
                        cols,
                        tiprack,
                        waste,
+                       protocol,
+                       pause_in_sec,
                        super_vol=600,
                        tip_vol_rs=200,
                        rate=0.25,
@@ -101,7 +103,13 @@ def remove_supernatant(pipette,
             pipette.aspirate(transfer_vol,
                              plate[col].bottom(z=z_height),
                              rate=rate)
+            
+            pipette.move_to(plate[col].top()) 
+            
+            protocol.delay(seconds=pause_in_sec)
+            
             pipette.air_gap(10)
+            
             pipette.dispense(transfer_vol + 10,
                              waste.top(),
                              rate=dispense_rate)
