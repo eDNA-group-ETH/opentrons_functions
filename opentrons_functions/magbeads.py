@@ -135,8 +135,6 @@ def bead_wash(  # global arguments
                 # super arguments
               super_waste,
               super_tiprack,
-              protocol,
-              pause_in_sec = 0,
                 # wash buffer arguments
               source_wells,
               source_vol,
