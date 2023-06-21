@@ -12,7 +12,7 @@ def add_buffer(pipette,
                touch_tip_speed,
                touch_tip_radius,
                touch_tip_v_offset,
-               tip_vol=200,
+               tip_vol,
                tip=None,
                remaining=None,
                drop_tip=True,
@@ -67,6 +67,8 @@ def add_buffer(pipette,
                     raise
                 remaining = source_vol
                 log += 'Remaining: %s\n' % remaining
+            
+            pipette.blow_out()
 
             pipette.aspirate(transfer_vol,
                              source_well)
@@ -84,7 +86,7 @@ def add_buffer(pipette,
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
                              
-            pipette.air_gap(10)
+            pipette.air_gap(10)            
 
             log += 'Transferring {0} to {1}\n'.format(source_well,
                                                       col)
