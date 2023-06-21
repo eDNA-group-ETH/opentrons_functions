@@ -67,8 +67,6 @@ def add_buffer(pipette,
                     raise
                 remaining = source_vol
                 log += 'Remaining: %s\n' % remaining
-            
-            pipette.blow_out()
 
             pipette.aspirate(transfer_vol,
                              source_well)
@@ -86,7 +84,11 @@ def add_buffer(pipette,
             pipette.dispense(transfer_vol + 10,
                              dest[col].top())
                              
-            pipette.air_gap(10)            
+            pipette.air_gap(10)
+
+            pipette.move_to(source_well.top())
+            
+            pipette.blow_out()
 
             log += 'Transferring {0} to {1}\n'.format(source_well,
                                                       col)
